@@ -1,0 +1,169 @@
+{
+    "BaseModel.ea0bba73-a8e0-4302-a65b-b88f56c28a96": {
+      "id": "ea0bba73-a8e0-4302-a65b-b88f56c28a96",
+      "created_at": "2023-04-06T10:54:28.412069",
+      "updated_at": "2023-04-06T10:54:28.412092",
+      "__class__": "BaseModel"
+    },
+    "User.dbb664ce-b7ed-45a2-8d47-ae8e53ff9d2c": {
+      "id": "dbb664ce-b7ed-45a2-8d47-ae8e53ff9d2c",
+      "created_at": "2023-04-06T11:01:54.226239",
+      "updated_at": "2023-04-06T11:01:54.226263",
+      "__class__": "User"
+    },
+    "User.a2cd0b50-177a-4a5e-9a3f-8e503fb4d614": {
+      "id": "a2cd0b50-177a-4a5e-9a3f-8e503fb4d614",
+      "created_at": "2023-04-06T11:01:56.210582",
+      "updated_at": "2023-04-06T11:01:56.210606",
+      "__class__": "User"
+    },
+    "User.74ab9627-4438-4537-a5ca-1559ef7c78ed": {
+      "id": "74ab9627-4438-4537-a5ca-1559ef7c78ed",
+      "created_at": "2023-04-06T12:22:35.317935",
+      "updated_at": "2023-04-06T12:27:10.243123",
+      "__class__": "User",
+      "name": "shugo"
+    },
+    "User.b3ff2cf0-39c1-4250-8628-8e621e10edf5": {
+      "id": "b3ff2cf0-39c1-4250-8628-8e621e10edf5",
+      "created_at": "2023-04-22T12:00:11.550831",
+      "updated_at": "2023-04-22T12:00:11.550854",
+      "__class__": "User"
+    },
+    "State.ff6603da-7b43-40da-81ac-41ad9e84f1f9": {
+      "id": "ff6603da-7b43-40da-81ac-41ad9e84f1f9",
+      "created_at": "2023-05-06T08:02:49.743531",
+      "updated_at": "2023-05-06T08:02:49.743552",
+      "__class__": "State"
+    },
+    "State.df9aae4c-1b37-4192-ab36-3b847447f988": {
+      "id": "df9aae4c-1b37-4192-ab36-3b847447f988",
+      "created_at": "2023-05-06T08:05:38.162396",
+      "updated_at": "2023-05-06T08:05:38.162418",
+      "__class__": "State"
+    },
+    "State.454eba06-071f-446f-8fc9-1d090166b47d": {
+      "id": "454eba06-071f-446f-8fc9-1d090166b47d",
+      "created_at": "2023-05-06T08:19:09.649199",
+      "updated_at": "2023-05-06T08:19:09.649220",
+      "__class__": "State"
+    },
+    "State.11dd6641-2f5c-4e9f-85b0-d9fbcf116481": {
+      "id": "11dd6641-2f5c-4e9f-85b0-d9fbcf116481",
+      "created_at": "2023-05-06T08:40:05.527838",
+      "updated_at": "2023-05-06T08:40:05.527858",
+      "__class__": "State"
+    },
+    "State.7c904bb5-3dc9-435f-a3d6-20242fe8fa32": {
+      "id": "7c904bb5-3dc9-435f-a3d6-20242fe8fa32",
+      "created_at": "2023-05-06T09:04:51.815896",
+      "updated_at": "2023-05-06T09:04:51.815920",
+      "name": "Lagos",
+      "__class__": "State"
+    },
+    "State.e282d5f2-7a51-4fff-91f1-edef0dae1a80": {
+      "id": "e282d5f2-7a51-4fff-91f1-edef0dae1a80",
+      "created_at": "2023-05-06T09:05:36.623099",
+      "updated_at": "2023-05-06T09:05:36.623126",
+      "name": "Lagos",
+      "__class__": "State"
+    },
+    "Place.0d79428b-f921-4845-9006-99e89570cde4": {
+      "id": "0d79428b-f921-4845-9006-99e89570cde4",
+      "created_at": "2023-05-06T09:19:21.020951",
+      "updated_at": "2023-05-06T09:19:21.020972",
+      "city_id": "0001",
+      "user_id": "0001",
+      "name": "My_little_house",
+      "number_rooms": "4",
+      "number_bathrooms": "2",
+      "max_guest": "10",
+      "price_by_night": "300",
+      "latitude": "37.773972",
+      "longitude": "-122.431297",
+      "__class__": "Place"
+    },
+    "State.414a0dd5-bb61-467d-92f8-b7c20471f256": {
+      "id": "414a0dd5-bb61-467d-92f8-b7c20471f256",
+      "created_at": "2023-05-06T13:34:38.136643",
+      "updated_at": "2023-05-06T13:34:38.136667",
+      "__class__": "State"
+    },
+    "State.13032cd1-1580-4bf6-986a-892e4af70b6d": {
+      "id": "13032cd1-1580-4bf6-986a-892e4af70b6d",
+      "created_at": "2023-05-06T13:35:54.129405",
+      "updated_at": "2023-05-06T13:35:54.129427",
+      "name": "\"Lagos State\"",
+      "__class__": "State"
+    },
+    "State.9a77e255-b775-4a4f-b073-0b7df403203e": {
+      "id": "9a77e255-b775-4a4f-b073-0b7df403203e",
+      "created_at": "2023-05-06T13:36:02.260389",
+      "updated_at": "2023-05-06T13:36:02.260412",
+      "name": "\"0001\"",
+      "__class__": "State"
+    },
+    "State.681e1000-1493-4219-921e-675e2f0e3145": {
+      "id": "681e1000-1493-4219-921e-675e2f0e3145",
+      "created_at": "2023-05-06T13:38:30.412179",
+      "updated_at": "2023-05-06T13:38:30.412203",
+      "name": "Lagos State",
+      "__class__": "State"
+    },
+    "State.d5d4eb84-03ce-47fb-97b3-1c1b350a53b6": {
+      "id": "d5d4eb84-03ce-47fb-97b3-1c1b350a53b6",
+      "created_at": "2023-05-06T13:38:43.489778",
+      "updated_at": "2023-05-06T13:38:43.489801",
+      "name": "Lagos State\\s",
+      "__class__": "State"
+    },
+    "State.997633b2-1461-4fad-9cc8-92d4df3d0dc3": {
+      "id": "997633b2-1461-4fad-9cc8-92d4df3d0dc3",
+      "created_at": "2023-05-06T13:40:56.975957",
+      "updated_at": "2023-05-06T13:40:56.975981",
+      "name": "Lagos State",
+      "__class__": "State"
+    },
+    "State.eb659d1d-731f-4885-8184-98842c80ece0": {
+      "id": "eb659d1d-731f-4885-8184-98842c80ece0",
+      "created_at": "2023-05-06T13:42:06.916397",
+      "updated_at": "2023-05-06T13:42:06.916422",
+      "name": "Chubis house",
+      "__class__": "State"
+    },
+    "State.dffba68b-51d6-4f21-a457-447ddc82ae42": {
+      "id": "dffba68b-51d6-4f21-a457-447ddc82ae42",
+      "created_at": "2023-05-06T14:41:03.906279",
+      "updated_at": "2023-05-06T14:41:03.906299",
+      "name": "Chubi\"s house",
+      "__class__": "State"
+    },
+    "State.3e08beab-1658-492e-be6c-406b4596b8dd": {
+      "id": "3e08beab-1658-492e-be6c-406b4596b8dd",
+      "created_at": "2023-05-06T21:19:04.339573",
+      "updated_at": "2023-05-06T21:19:04.339595",
+      "name": "Chubi\"s house",
+      "__class__": "State"
+    },
+    "Place.4d4d23ad-9c25-4f2f-a81e-b464216ecbb8": {
+      "id": "4d4d23ad-9c25-4f2f-a81e-b464216ecbb8",
+      "created_at": "2023-05-06T21:23:55.387241",
+      "updated_at": "2023-05-06T21:23:55.387263",
+      "city_id": "0001",
+      "user_id": "0001",
+      "name": "My little house",
+      "number_rooms": 4,
+      "number_bathrooms": 2,
+      "max_guest": 10,
+      "price_by_night": 300,
+      "latitude": 37.773972,
+      "longitude": -122.431297,
+      "__class__": "Place"
+    },
+    "State.8691eeda-f789-4668-baa7-1b8d99560a27": {
+      "id": "8691eeda-f789-4668-baa7-1b8d99560a27",
+      "created_at": "2023-05-06T21:30:33.555490",
+      "updated_at": "2023-05-06T21:30:33.555505",
+      "__class__": "State"
+    }
+  }
