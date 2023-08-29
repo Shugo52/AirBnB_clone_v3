@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""states page for Flask app"""
 
 from models import storage
 from models.state import State
