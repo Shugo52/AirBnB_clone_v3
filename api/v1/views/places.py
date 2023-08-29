@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""handles places for Flask app"""
 
 from models import storage
 from models.city import City
