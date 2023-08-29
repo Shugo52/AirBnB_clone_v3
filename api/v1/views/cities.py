@@ -7,7 +7,8 @@ from api.v1.views import app_views
 from flask import jsonify, request, abort, make_response
 
 
-@app_views.route('states/<state_id>/cities', methods=['GET', 'POST'])
+@app_views.route('states/<state_id>/cities', methods=['GET', 'POST'],
+                 strict_slashes=False)
 def city_linked_by_state(state_id=None):
     """processes request on cities linked to a state"""
     state = storage.get('State', state_id)
@@ -19,16 +20,18 @@ def city_linked_by_state(state_id=None):
         return jsonify([city.to_dict() for city in state.cities])
 
     if request.method == 'POST':
-        if request.json is None:
+        req = request.get_data()
+        if req is None:
             abort(400, 'Not a JSON')
-        if 'name' not in request.json:
+        if 'name' not in req:
             abort(400, "Missing name")
-        new_city = City(**request.get_json())
+        new_city = City(**req)
         new_city.save()
         return jsonify(new_city.to_dict()), 201
 
 
-@app_views.route('cities/<city_id>', methods=['GET', 'DELETE', 'PUT'])
+@app_views.route('cities/<city_id>', methods=['GET', 'DELETE', 'PUT'],
+                 strict_slashes=False)
 def city(city_id=None):
     """process request on a city object"""
     city = storage.get('City', city_id)
@@ -45,9 +48,10 @@ def city(city_id=None):
         return jsonify({}), 200
 
     if request.method == 'PUT':
-        if not request.json:
+        req = request.get_json()
+        if not req:
             abort(400, "Not a JSON")
-        for key, value in request.json.items():
+        for key, value in req.items():
             if key not in ["id", "created_at", "updated_at"]:
                 setattr(city, key, value)
         city.save()
