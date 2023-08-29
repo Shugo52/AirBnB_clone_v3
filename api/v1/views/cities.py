@@ -14,7 +14,7 @@ def city_linked_by_state(state_id=None):
     state = storage.get('State', state_id)
 
     if not state:
-        abort(404)
+        abort(404, 'Not found')
 
     if request.method == 'GET':
         return make_response(jsonify([city.to_dict()
@@ -39,7 +39,7 @@ def city(city_id=None):
     city = storage.get('City', city_id)
 
     if not city:
-        abort(404)
+        abort(404, 'Not found')
 
     if request.method == 'GET':
         return make_response(jsonify(city.to_dict()))
