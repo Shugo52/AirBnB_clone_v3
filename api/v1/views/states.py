@@ -7,7 +7,7 @@ from api.v1.views import app_views
 from flask import jsonify, request, abort, make_response
 
 
-@app_views.route('/states', methods=['GET', 'POST'], strict_slashes=False)
+@app_views.route('/states', methods=['GET', 'POST'])
 def getstates():
     """route to handle http method for requested states"""
     if request.method == 'GET':
