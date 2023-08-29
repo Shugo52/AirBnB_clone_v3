@@ -9,7 +9,7 @@ from api.v1.views import app_views
 from flask import jsonify, request, abort, make_response
 
 
-@app_views.route('/cities/<city_id>/places', ['GET', 'POST'])
+@app_views.route('/cities/<city_id>/places', methods=['GET', 'POST'])
 def places_in_city(city_id=None):
     """processes places in a city"""
     city = storage.get('City', city_id)
