@@ -4,16 +4,15 @@
 from models import storage
 from models.state import State
 from api.v1.views import app_views
-from flask import jsonify, request, abort
+from flask import jsonify, request, abort, make_response
 
 
 @app_views.route('/states', methods=['GET', 'POST'])
 def getstates():
     """route to handle http method for requested states"""
     if request.method == 'GET':
-        all_states = storage.all('State')
-        all_states = list(obj.to_dict() for obj in all_states.values())
-        return jsonify(all_states)
+        return make_response(jsonify([state.to_dict()for state
+                                      in storage.all('State').values()]))
 
     if request.method == 'POST':
         if request.json is None:
@@ -25,7 +24,7 @@ def getstates():
         new_object = State(**request.get_json())
         new_object.save()
 
-        return jsonify(new_object.to_dict()), 201
+        return make_response(jsonify(new_object.to_dict()), 201)
 
 
 @app_views.route('/states/<state_id>', methods=['GET', 'DELETE', 'PUT'])
@@ -37,7 +36,7 @@ def state(state_id=None):
         abort(404, 'Not found')
 
     if request.method == 'GET':
-        return jsonify(state.to_dict())
+        return make_response(jsonify(state.to_dict()))
 
     if request.method == 'DELETE':
         storage.delete(state)
@@ -55,4 +54,4 @@ def state(state_id=None):
 
         state.save()
 
-        return jsonify(state.to_dict()), 200
+        return make_response(jsonify(state.to_dict()), 200)

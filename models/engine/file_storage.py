@@ -71,9 +71,10 @@ class FileStorage:
         """
         all_class = self.all(cls)
 
-        for obj in all_class.values():
-            if id == str(obj.id):
-                return obj
+        for k, v in all_class.items():
+            obj = cls + '.' + id
+            if k == obj:
+                return v
         return None
 
     def count(self, cls=None):
@@ -81,10 +82,7 @@ class FileStorage:
         Returns the number of objects in storage matching the given class.
         If no class is passed, returns the count of all objects in storage.
         """
-        count = 0
-        cls_dict = self.all(cls)
-        count = len(cls_dict)
-        return count
+        return (len(self.all(cls)))
 
     def close(self):
         """call reload() method for deserializing the JSON file to objects"""

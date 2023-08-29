@@ -13,7 +13,7 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def close(exception):
-    storage.close
+    storage.close()
 
 
 @app.errorhandler(404)

@@ -3,7 +3,6 @@
 
 from models import storage
 from models.city import City
-from models.state import State
 from api.v1.views import app_views
 from flask import jsonify, request, abort, make_response
 
@@ -17,7 +16,8 @@ def city_linked_by_state(state_id=None):
         abort(404)
 
     if request.method == 'GET':
-        return jsonify([city.to_dict() for city in state.cities])
+        return make_response(jsonify([city.to_dict()
+                                      for city in state.cities]))
 
     if request.method == 'POST':
         if not request.json:
@@ -29,7 +29,7 @@ def city_linked_by_state(state_id=None):
         new_city = City(**request.get_json())
         new_city.save()
 
-        return jsonify(new_city.to_dict()), 201
+        return make_response(jsonify(new_city.to_dict()), 201)
 
 
 @app_views.route('cities/<city_id>', methods=['GET', 'DELETE', 'PUT'])
@@ -41,12 +41,12 @@ def city(city_id=None):
         abort(404)
 
     if request.method == 'GET':
-        return jsonify(city.to_dict())
+        return make_response(jsonify(city.to_dict()))
 
     if request.method == 'DELETE':
         storage.delete(city)
         storage.save()
-        return jsonify({}), 200
+        return make_response(jsonify({}), 200)
 
     if request.method == 'PUT':
         if not request.json:
@@ -58,4 +58,4 @@ def city(city_id=None):
 
         city.save()
 
-        return jsonify(city.to_dict()), 200
+        return make_response(jsonify(city.to_dict()), 200)
