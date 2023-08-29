@@ -3,6 +3,7 @@
 
 from models import storage
 from models.user import User
+from models.state import State
 from api.v1.views import app_views
 from flask import jsonify, request, abort, make_response
 
@@ -11,8 +12,8 @@ from flask import jsonify, request, abort, make_response
 def users():
     """processes all users"""
     if request.method == 'GET':
-        return make_response(jsonify(user.to_dict() for user
-                                     in storage.all('User').values()))
+        return make_response(jsonify([user.to_dict() for user
+                                     in storage.all('User').values()]))
 
     if request.method == 'POST':
         if not request.json:
