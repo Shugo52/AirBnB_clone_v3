@@ -13,14 +13,14 @@ def amenities():
     if request.method == 'GET':
         return make_response(jsonify([amenity.to_dict() for amenity
                                       in storage.all('Amenity').values()]))
-    
+
     if request.method == 'POST':
         if not request.json:
             abort(400, 'Not a JSON')
 
         if 'name' not in request.json:
             abort(400, "Missing name")
-        
+
         new_amenity = Amenity(**request.get_json())
         new_amenity.save()
 
@@ -37,20 +37,20 @@ def amenity(amenity_id=None):
 
     if request.method == 'GET':
         return make_response(jsonify(amenity.to_dict()))
-    
+
     if request.method == 'DELETE':
         storage.delete(amenity)
         storage.save()
         return make_response(jsonify({}), 200)
-    
+
     if request.method == 'PUT':
         if not request.json:
             abort(400, 'Not a JSON')
-        
+
         for key, value in request.json.items():
             if key not in ["id", "created_at", "updated_at"]:
                 setattr(amenity, key, value)
-        
+
         amenity.save()
 
         return make_response(jsonify(amenity.to__dict(), 200))
