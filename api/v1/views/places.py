@@ -35,6 +35,8 @@ def places_in_city(city_id=None):
         new_place = Place(**request.get_json())
         new_place.save()
 
+        return make_response(jsonify(new_place.to_dict()))
+
 
 @app_views.route('/places/<place_id>', methods=['GET', 'DELETE', 'PUT'])
 def place(place_id=None):
