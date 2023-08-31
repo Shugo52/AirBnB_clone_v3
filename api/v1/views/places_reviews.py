@@ -14,7 +14,7 @@ def reviewed_by_places(place_id=None):
     """processes reviews for places"""
     place = storage.get('Place', place_id)
 
-    if not place_id:
+    if not place:
         abort(404, 'Not found')
 
     if request.method == 'GET':
@@ -46,10 +46,10 @@ def reviewed_by_places(place_id=None):
         return make_response(jsonify(new_review.to_dict()))
 
 
-@app_views.route('reviews/<review_id>' methods=['GET', 'DELETE', 'PUT'])
+@app_views.route('reviews/<review_id>', methods=['GET', 'DELETE', 'PUT'])
 def review(review_id=None):
     """processes a review"""
-    review = storage.get('Review')
+    review = storage.get('Review', review_id)
 
     if not review:
         abort(404, 'Not found')
