@@ -13,6 +13,7 @@ from flask import jsonify, request, abort, make_response
 def places_in_city(city_id=None):
     """processes places in a city"""
     city = storage.get('City', city_id)
+
     if city is None:
         abort(404, 'Not found')
 
@@ -23,6 +24,13 @@ def places_in_city(city_id=None):
         return make_response(jsonify(city_places))
 
     if request.method == 'POST':
+        request_data = request.get_json()
+        
+        user = storage.get('User', request_data['user_id'])
+        
+        if not user:
+            abort(404, 'Not found')
+
         if not request.json:
             abort(400, 'Not a JSON')
 
@@ -32,10 +40,11 @@ def places_in_city(city_id=None):
         if 'name' not in request.json:
             abort(400, 'Missing name')
 
-        new_place = Place(**request.get_json())
+        request_data['city_id'] = city_id
+        new_place = Place(**request_data)
         new_place.save()
 
-        return make_response(jsonify(new_place.to_dict()))
+        return make_response(jsonify(new_place.to_dict()), 201)
 
 
 @app_views.route('/places/<place_id>', methods=['GET', 'DELETE', 'PUT'])
