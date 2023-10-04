@@ -28,7 +28,7 @@ def city_linked_by_state(state_id=None):
             abort(400, "Missing name")
 
         request_data = request.get_json()
-        
+
         request_data['state_id'] = state_id
         new_city = City(**request_data)
         new_city.save()
