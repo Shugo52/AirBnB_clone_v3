@@ -27,7 +27,10 @@ def city_linked_by_state(state_id=None):
         if 'name' not in request.json:
             abort(400, "Missing name")
 
-        new_city = City(**request.get_json())
+        request_data = request.get_json()
+        
+        request_data['state_id'] = state_id
+        new_city = City(**request_data)
         new_city.save()
 
         return make_response(jsonify(new_city.to_dict()), 201)
