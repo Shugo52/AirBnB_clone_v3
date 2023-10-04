@@ -30,9 +30,6 @@ def reviewed_by_places(place_id=None):
         if 'user_id' not in request.json:
             abort(400, 'Missing user_id')
 
-        if 'user_id' not in request.json:
-            abort(400, 'Missing user_id')
-
         if not storage.get('User', request.get_json()['user_id']):
             abort(404, 'Not found')
 
@@ -43,7 +40,7 @@ def reviewed_by_places(place_id=None):
         new_review.place_id = place_id
         new_review.save()
 
-        return make_response(jsonify(new_review.to_dict()))
+        return make_response(jsonify(new_review.to_dict()), 201)
 
 
 @app_views.route('reviews/<review_id>', methods=['GET', 'DELETE', 'PUT'])
@@ -55,19 +52,20 @@ def review(review_id=None):
         abort(404, 'Not found')
 
     if request.method == 'GET':
-        return make_response(jsonify(review.to_dict()))
+        return make_response(jsonify(review.to_dict()), 200)
 
     if request.method == 'DELETE':
         storage.delete(review)
         storage.save()
-        return make_response(jsonify({}))
+        return make_response(jsonify({}), 200)
 
     if request.method == 'PUT':
         if not request.json:
             abort(400, 'Not a JSON')
 
         for key, value in request.json.items():
-            if key not in ["id", "created_at", "updated_at"]:
+            if key not in ["id", "created_at", "updated_at",
+                           "user_id", "place_id"]:
                 setattr(review, key, value)
 
         review.save()

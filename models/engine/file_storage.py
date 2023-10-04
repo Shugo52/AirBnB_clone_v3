@@ -71,10 +71,9 @@ class FileStorage:
         """
         all_class = self.all(cls)
 
-        for k, v in all_class.items():
-            obj = cls + '.' + id
-            if k == obj:
-                return v
+        for values in all_class.values():
+            if values.id == id:
+                return values
         return None
 
     def count(self, cls=None):
