@@ -53,4 +53,4 @@ def amenity(amenity_id=None):
 
         amenity.save()
 
-        return make_response(jsonify(amenity.to__dict(), 200))
+        return make_response(jsonify(amenity.to_dict(), 200))
