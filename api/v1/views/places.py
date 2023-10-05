@@ -25,9 +25,8 @@ def places_in_city(city_id=None):
 
     if request.method == 'POST':
         request_data = request.get_json()
-        
         user = storage.get('User', request_data['user_id'])
-        
+
         if not user:
             abort(404, 'Not found')
 
