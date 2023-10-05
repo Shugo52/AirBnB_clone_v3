@@ -3,6 +3,7 @@
 
 from models import storage
 from models.city import City
+from models.user import User
 from models.place import Place
 from models.state import State
 from api.v1.views import app_views
@@ -24,17 +25,17 @@ def places_in_city(city_id=None):
         return make_response(jsonify(city_places))
 
     if request.method == 'POST':
-        request_data = request.get_json()
-        user = storage.get('User', request_data['user_id'])
-
-        if not user:
-            abort(404, 'Not found')
-
         if not request.json:
             abort(400, 'Not a JSON')
 
         if 'user_id' not in request.json:
             abort(400, 'Missing user_id')
+
+        request_data = request.get_json()
+        user = storage.get(User, request_data['user_id'])
+
+        if not user:
+            abort(404, 'User not found')
 
         if 'name' not in request.json:
             abort(400, 'Missing name')
