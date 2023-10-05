@@ -12,15 +12,18 @@ from flask import jsonify, request, abort, make_response
 @app_views.route('places/<place_id>/reviews', methods=['GET', 'POST'])
 def reviewed_by_places(place_id=None):
     """processes reviews for places"""
-    place = storage.get('Place', place_id)
+    place = storage.get(Place, place_id)
 
     if not place:
         abort(404, 'Not found')
 
     if request.method == 'GET':
-        places = storage.all('Place')
-        reviews_place = [obj.to_dict() for obj in places.values()
-                         if obj.reviews == reviews_place]
+        place = storage.get(Place, place_id)
+
+        if not place:
+            abort(400, 'Not found')
+
+        reviews_place = [review.to_dict() for review in place.reviews]
         return make_response(jsonify(reviews_place))
 
     if request.method == 'POST':
