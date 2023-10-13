@@ -49,7 +49,7 @@ def reviewed_by_places(place_id=None):
 @app_views.route('reviews/<review_id>', methods=['GET', 'DELETE', 'PUT'])
 def review(review_id=None):
     """processes a review"""
-    review = storage.get('Review', review_id)
+    review = storage.get(Review, review_id)
 
     if not review:
         abort(404, 'Not found')

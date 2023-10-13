@@ -2,13 +2,15 @@
 """Flask app Module"""
 
 import os
-from flask import Flask, jsonify, make_response
 from models import storage
+from flask_cors import CORS
 from api.v1.views import app_views
+from flask import Flask, jsonify, make_response
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 app.register_blueprint(app_views)
+cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 
 @app.teardown_appcontext
